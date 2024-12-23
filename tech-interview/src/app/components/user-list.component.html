@@ -1,0 +1,32 @@
+<div class="container py-4">
+  <!-- Search Input -->
+  <form [formGroup]="searchForm" class="mb-3">
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="search"
+        class="form-control"
+        placeholder="Search by username"
+      />
+    </div>
+  </form>
+
+  <!-- Loader -->
+  <div *ngIf="loading$ | async" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- User List -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let user of (users$ | async)">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
