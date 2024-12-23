@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
+import { BehaviorSubject, catchError, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface User {
